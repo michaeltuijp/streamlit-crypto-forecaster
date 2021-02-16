@@ -60,16 +60,14 @@ st.write(data.tail())
 ### Plot functions
 def plot_raw_data():
 	fig = go.Figure()
-	fig.add_trace(go.Scatter(x=data['Date'], y=data['Open'], name="Open"))
 	fig.add_trace(go.Scatter(x=data['Date'], y=data['Close'], name="Close"))
 	fig.layout.update(title_text='Time Series data with Rangeslider', xaxis_rangeslider_visible=True)
 	st.plotly_chart(fig)
 
 def plot_raw_data_log():
 	fig = go.Figure()
-	fig.add_trace(go.Scatter(x=data['Date'], y=data['Open'], name="Open"))
 	fig.add_trace(go.Scatter(x=data['Date'], y=data['Close'], name="Close"))
-	fig.update_xaxes(type="log")
+	fig.update_yaxes(type="log")
 	fig.layout.update(title_text='Time Series data with Rangeslider', xaxis_rangeslider_visible=True)
 	st.plotly_chart(fig)
 	
