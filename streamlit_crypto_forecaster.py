@@ -5,7 +5,7 @@ from datetime import date
 from cryptocmd import CmcScraper
 from fbprophet import Prophet
 from fbprophet.plot import plot_plotly
-from neuralprophet import NeuralProphet
+# from neuralprophet import NeuralProphet
 from plotly import graph_objs as go
 
 # START = "2015-01-01"
