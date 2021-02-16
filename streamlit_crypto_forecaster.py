@@ -18,7 +18,7 @@ st.title('Crypto Forecaster')
 
 ### Select ticker & number of days to predict on
 selected_ticker = st.text_input("Select a ticker for prediction (i.e. BTC, ETH, LINK, etc.)", "BTC")
-period = st.number_input('Number of days to predict:', min_value=0.0, max_value=5000.0, value=30.0, step=0.1)
+period = int(st.number_input('Number of days to predict:', min_value=0, max_value=5000, value=30, step=1))
 
 ### Initialise scraper without time interval
 @st.cache
