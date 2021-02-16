@@ -1,5 +1,8 @@
 # pip install pandas numpy matplotlib streamlit pystan fbprophet neuralprophet cryptocmd plotly
 import streamlit as st
+import numpy as np
+import pandas as pd
+import matplotlib as plt
 from datetime import date
 
 from cryptocmd import CmcScraper
