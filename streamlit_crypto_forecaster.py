@@ -28,10 +28,10 @@ def load_data(selected_ticker):
 	min_date = pd.to_datetime(min(df['Date']))
 	max_date = pd.to_datetime(max(df['Date']))
 	# data.reset_index(inplace=True)
-	return init_df, min_date, max_date
+	return min_date, max_date
 
 data_load_state = st.text('Loading data...')
-init_df, min_date, max_date = load_data(selected_ticker)
+min_date, max_date = load_data(selected_ticker)
 data_load_state.text('Loading data... done!')
 
 
