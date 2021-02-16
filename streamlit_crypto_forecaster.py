@@ -55,7 +55,7 @@ data = scraper.get_dataframe()
 
 
 st.subheader('Raw data')
-st.write(data.tail())
+st.write(data.head())
 
 ### Plot functions
 def plot_raw_data():
@@ -92,10 +92,12 @@ if st.button("Predict"):
 
 	### Show and plot forecast
 	st.subheader('Forecast data')
-	st.write(forecast.tail())
+	st.write(forecast.head())
 	    
 	st.write(f'Forecast plot for {period} days')
 	fig1 = plot_plotly(m, forecast)
+	if plot_log:
+		fig.update_yaxes(type="log")
 	st.plotly_chart(fig1)
 
 	st.write("Forecast components")
@@ -129,7 +131,7 @@ if st.button("Predict"):
 
 	# ### Show and plot forecast
 	# st.subheader('Forecast Neural Prophet data')
-	# st.write(neural_forecast.tail())
+	# st.write(neural_forecast.head())
 	    
 	# st.write(f'Forecast Neural Prophet plot for {period} days')
 	# fig3 = plot_plotly(m2, neural_forecast)
