@@ -31,7 +31,7 @@ st.markdown(
     unsafe_allow_html=True,
 )
 
-st.sidebar.subheader("<*font color='black'>Loes is coooollllll</*font>", unsafe_allow_html=True) #Forecaster Settings
+st.sidebar.markdown("<font color='pink'>Loes is coooollllll</font>", unsafe_allow_html=True) #Forecaster Settings
 
 ### Select ticker & number of days to predict on
 selected_ticker = st.sidebar.text_input("Select a ticker for prediction (i.e. BTC, ETH, LINK, etc.)", "BTC")
