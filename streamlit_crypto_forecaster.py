@@ -97,7 +97,7 @@ if st.button("Predict"):
 	st.write(f'Forecast plot for {period} days')
 	fig1 = plot_plotly(m, forecast)
 	if plot_log:
-		fig.update_yaxes(type="log")
+		fig1.update_yaxes(type="log")
 	st.plotly_chart(fig1)
 
 	st.write("Forecast components")
