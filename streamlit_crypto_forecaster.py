@@ -13,9 +13,25 @@ from plotly import graph_objs as go
 st.title('Crypto Forecaster')
 
 st.markdown("This application enables you to predict on the future value of any cryptocurrency (available on Coinmarketcap.com), for \
-	any number of days into the future! The application is built with the Facebook Prophet model, which is an advanced open-source \
-	forecasting model built by Facebook. You can select to train the model on either all available data or a pre-set date range. \
-	Finally, you can plot the prediction results on both a normal and log scale.") ### Add save prediction dataset + image option?
+	any number of days into the future! The application is built with Streamlit (the front-end) and the Facebook Prophet model, \
+	which is an advanced open-source forecasting model built by Facebook, running under the hood. You can select to train the model \
+	on either all available data or a pre-set date range. Finally, you can plot the prediction results on both a normal and log scale.") 
+	### Add save prediction dataset + image option?
+
+### Change sidebar color
+	st.markdown(
+	    """
+	<style>
+	.sidebar .sidebar-content {
+	    background-image: linear-gradient(#D6EAF8,#D6EAF8);
+	    color: white;
+	}
+	</style>
+	""",
+	    unsafe_allow_html=True,
+	)
+
+st.sidebar.subheader("Forecaster Settings")
 
 ### Select ticker & number of days to predict on
 selected_ticker = st.sidebar.text_input("Select a ticker for prediction (i.e. BTC, ETH, LINK, etc.)", "BTC")
