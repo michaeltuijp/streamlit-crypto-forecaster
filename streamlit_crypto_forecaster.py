@@ -12,6 +12,11 @@ from plotly import graph_objs as go
 
 st.title('Crypto Forecaster')
 
+st.markdown("This application enables you to predict on the future value of any cryptocurrency (available on Coinmarketcap.com), for \
+	any number of days into the future! The application is built with the Facebook Prophet model, which is an advanced open-source \
+	forecasting model built by Facebook. You can select to train the model on either all available data or a pre-set date range. \
+	Finally, you can plot the prediction results on both a normal and log scale.") ### Add save prediction dataset + image option?
+
 ### Select ticker & number of days to predict on
 selected_ticker = st.text_input("Select a ticker for prediction (i.e. BTC, ETH, LINK, etc.)", "BTC")
 period = int(st.number_input('Number of days to predict:', min_value=0, max_value=5000, value=30, step=1))
@@ -21,8 +26,8 @@ period = int(st.number_input('Number of days to predict:', min_value=0, max_valu
 def load_data(selected_ticker):
 	init_scraper = CmcScraper(selected_ticker)
 	df = init_scraper.get_dataframe()
-	min_date = str(min(df['Date'])) #pd.to_datetime(min(df['Date']))
-	max_date = str(max(df['Date'])) #pd.to_datetime(max(df['Date']))
+	min_date = pd.to_datetime(min(df['Date']))
+	max_date = pd.to_datetime(max(df['Date']))
 	return min_date, max_date
 
 data_load_state = st.text('Loading data...')
@@ -43,7 +48,7 @@ elif date_range == "Specific date range":
 	### Initialise scraper with time interval
 	start_date = st.date_input('Select start date:', min_value=min_date, max_value=max_date, value=max_date)
 	end_date = st.date_input('Select end date:', min_value=min_date, max_value=max_date, value=max_date)
-	scraper = CmcScraper(selected_ticker, start_date, end_date)
+	scraper = CmcScraper(selected_ticker, pd.to_datetime(start_date), pd.to_datetime(end_date))
 
 ### Pandas dataFrame for the same data
 data = scraper.get_dataframe()
