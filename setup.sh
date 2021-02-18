@@ -1,7 +1,3 @@
-git clone https://github.com/ourownstory/neural_prophet.git
-cd neural_prophet
-pip install .
-
 mkdir -p ~/.streamlit/
 
 echo "\
@@ -9,5 +5,9 @@ echo "\
 port = $PORT\n\
 enableCORS = false\n\
 headless = true\n\
+\n\
+git clone https://github.com/ourownstory/neural_prophet.git\n\
+cd neural_prophet\n\
+pip install .\n\
 \n\
 " > ~/.streamlit/config.toml
