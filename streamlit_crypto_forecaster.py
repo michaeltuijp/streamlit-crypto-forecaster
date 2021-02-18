@@ -18,8 +18,8 @@ st.markdown("This application enables you to predict on the future value of any 
 	Finally, you can plot the prediction results on both a normal and log scale.") ### Add save prediction dataset + image option?
 
 ### Select ticker & number of days to predict on
-selected_ticker = st.text_input("Select a ticker for prediction (i.e. BTC, ETH, LINK, etc.)", "BTC")
-period = int(st.number_input('Number of days to predict:', min_value=0, max_value=5000, value=30, step=1))
+selected_ticker = st.sidebar.text_input("Select a ticker for prediction (i.e. BTC, ETH, LINK, etc.)", "BTC")
+period = int(st.sidebar.number_input('Number of days to predict:', min_value=0, max_value=100000, value=30, step=1))
 
 ### Initialise scraper without time interval
 @st.cache
@@ -30,13 +30,13 @@ def load_data(selected_ticker):
 	max_date = pd.to_datetime(max(df['Date']))
 	return min_date, max_date
 
-data_load_state = st.text('Loading data...')
+data_load_state = st.sidebar.text('Loading data...')
 min_date, max_date = load_data(selected_ticker)
 data_load_state.text('Loading data... done!')
 
 
 ### Select date range
-date_range = st.selectbox("Select the data timeframe:", options=["All available data", "Specific date range"])
+date_range = st.sidebar.selectbox("Select the data timeframe:", options=["All available data", "Specific date range"])
 
 if date_range == "All available data":
 
@@ -46,8 +46,8 @@ if date_range == "All available data":
 elif date_range == "Specific date range":
 
 	### Initialise scraper with time interval
-	start_date = st.date_input('Select start date:', min_value=min_date, max_value=max_date, value=max_date)
-	end_date = st.date_input('Select end date:', min_value=min_date, max_value=max_date, value=max_date)
+	start_date = st.sidebar.date_input('Select start date:', min_value=min_date, max_value=max_date, value=max_date)
+	end_date = st.sidebar.date_input('Select end date:', min_value=min_date, max_value=max_date, value=max_date)
 	scraper = CmcScraper(selected_ticker, str(start_date.strftime("%d-%m-%Y")), str(end_date.strftime("%d-%m-%Y")))
 
 ### Pandas dataFrame for the same data
