@@ -8,7 +8,7 @@ from datetime import date
 from cryptocmd import CmcScraper
 from fbprophet import Prophet
 from fbprophet.plot import plot_plotly
-# from neuralprophet import NeuralProphet
+from neuralprophet import NeuralProphet
 from plotly import graph_objs as go
 
 # START = "2015-01-01"
@@ -25,8 +25,8 @@ period = int(st.number_input('Number of days to predict:', min_value=0, max_valu
 def load_data(selected_ticker):
 	init_scraper = CmcScraper(selected_ticker)
 	df = init_scraper.get_dataframe()
-	min_date = pd.to_datetime(min(df['Date']))
-	max_date = pd.to_datetime(max(df['Date']))
+	min_date = min(df['Date']) #pd.to_datetime(min(df['Date']))
+	max_date = max(df['Date']) #pd.to_datetime(max(df['Date']))
 	# data.reset_index(inplace=True)
 	return min_date, max_date
 
