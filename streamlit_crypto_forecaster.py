@@ -24,7 +24,7 @@ st.markdown(
 <style>
 .sidebar .sidebar-content {
     background-image: linear-gradient(#D6EAF8,#D6EAF8);
-    color: white;
+    color: black;
 }
 </style>
 """,
@@ -36,14 +36,14 @@ st.markdown(
 	"""
 <style>
 .big-font {
-    font-size:100px !important;
+    font-size:18px !important;
 }
 </style>
 """, unsafe_allow_html=True)
 
 # st.markdown('<p class="big-font">Hello World !!</p>', unsafe_allow_html=True)
 
-st.sidebar.markdown("<p class='big-font'><font color='dark blue'>Loes is coooollllll</font></p>", unsafe_allow_html=True) #Forecaster Settings
+st.sidebar.markdown("<p class='big-font'><span class='bold'><font color='black'>Forecaster Settings</font></span></p>", unsafe_allow_html=True)
 
 ### Select ticker & number of days to predict on
 selected_ticker = st.sidebar.text_input("Select a ticker for prediction (i.e. BTC, ETH, LINK, etc.)", "BTC")
