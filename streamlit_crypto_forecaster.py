@@ -1,4 +1,4 @@
-# pip install pandas numpy matplotlib streamlit pystan fbprophet neuralprophet cryptocmd plotly
+# pip install pandas numpy matplotlib streamlit pystan fbprophet cryptocmd plotly
 import streamlit as st
 import numpy as np
 import pandas as pd
@@ -8,11 +8,7 @@ from datetime import date
 from cryptocmd import CmcScraper
 from fbprophet import Prophet
 from fbprophet.plot import plot_plotly
-# from neuralprophet import NeuralProphet
 from plotly import graph_objs as go
-
-# START = "2015-01-01"
-# today = date.today().strftime("%Y-%m-%d")
 
 st.title('Crypto Forecaster')
 
@@ -25,9 +21,8 @@ period = int(st.number_input('Number of days to predict:', min_value=0, max_valu
 def load_data(selected_ticker):
 	init_scraper = CmcScraper(selected_ticker)
 	df = init_scraper.get_dataframe()
-	min_date = min(df['Date']) #pd.to_datetime(min(df['Date']))
-	max_date = max(df['Date']) #pd.to_datetime(max(df['Date']))
-	# data.reset_index(inplace=True)
+	min_date = str(min(df['Date'])) #pd.to_datetime(min(df['Date']))
+	max_date = str(max(df['Date'])) #pd.to_datetime(max(df['Date']))
 	return min_date, max_date
 
 data_load_state = st.text('Loading data...')
@@ -103,50 +98,3 @@ if st.button("Predict"):
 	st.write("Forecast components")
 	fig2 = m.plot_components(forecast)
 	st.write(fig2)
-
-
-	# ### Create NeuralProphet model
-	# # m2 = NeuralProphet()
-	# m2 = NeuralProphet(
-	#     n_forecasts=period,
-	#     # n_lags=60,
-	#     n_changepoints=100,
-	#     yearly_seasonality=True,
-	#     weekly_seasonality=True,
-	#     daily_seasonality=True,
-	#     batch_size=64,
-	#     epochs=100,
-	#     learning_rate=1.0,
-	# )
-
-	# ### Fit the model
-	# m2.fit(df_train, 
-	#           freq='D',
-	#           valid_p=0.2,
-	#           epochs=100)
-
-	# ### Predict using Neural Prophet
-	# neural_future = m2.make_future_dataframe(df_train, periods=period)
-	# neural_forecast = m2.predict(neural_future)
-
-	# ### Show and plot forecast
-	# st.subheader('Forecast Neural Prophet data')
-	# st.write(neural_forecast.head())
-	    
-	# st.write(f'Forecast Neural Prophet plot for {period} days')
-	# fig3 = plot_plotly(m2, neural_forecast)
-	# st.plotly_chart(fig3)
-
-	# st.write("Neural Prophet Forecast components")
-	# fig4 = m.plot_components(neural_forecast)
-	# st.write(fig4)
-
-	# # ### Plot the model
-	# # try:
-	# # 	st.markdown(plot_forecast(m2, df_train, periods=period, historic_predictions=True))
-	# # except:
-	# # 	None
-
-	# # metrics = m2.fit(df_train, validate_each_epoch=True, 
-	# #                     valid_p=0.2, freq='D', 
-	# #                     plot_live_loss=True, epochs=10)
