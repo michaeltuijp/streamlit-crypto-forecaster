@@ -19,17 +19,17 @@ st.markdown("This application enables you to predict on the future value of any 
 	### Add save prediction dataset + image option?
 
 ### Change sidebar color
-	st.markdown(
-	    """
-	<style>
-	.sidebar .sidebar-content {
-	    background-image: linear-gradient(#D6EAF8,#D6EAF8);
-	    color: white;
-	}
-	</style>
-	""",
-	    unsafe_allow_html=True,
-	)
+st.markdown(
+    """
+<style>
+.sidebar .sidebar-content {
+    background-image: linear-gradient(#D6EAF8,#D6EAF8);
+    color: white;
+}
+</style>
+""",
+    unsafe_allow_html=True,
+)
 
 st.sidebar.subheader("Forecaster Settings")
 
