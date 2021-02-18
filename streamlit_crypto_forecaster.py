@@ -3,7 +3,7 @@ import streamlit as st
 import numpy as np
 import pandas as pd
 import matplotlib as plt
-from datetime import date
+from datetime import date, datetime
 
 from cryptocmd import CmcScraper
 from fbprophet import Prophet
@@ -48,7 +48,7 @@ elif date_range == "Specific date range":
 	### Initialise scraper with time interval
 	start_date = st.date_input('Select start date:', min_value=min_date, max_value=max_date, value=max_date)
 	end_date = st.date_input('Select end date:', min_value=min_date, max_value=max_date, value=max_date)
-	scraper = CmcScraper(selected_ticker, str(start_date), str(end_date))
+	scraper = CmcScraper(selected_ticker, str(start_date.strftime("%d-%m-%Y")), str(end_date.strftime("%d-%m-%Y")))
 
 ### Pandas dataFrame for the same data
 data = scraper.get_dataframe()
