@@ -48,7 +48,7 @@ elif date_range == "Specific date range":
 	### Initialise scraper with time interval
 	start_date = st.date_input('Select start date:', min_value=min_date, max_value=max_date, value=max_date)
 	end_date = st.date_input('Select end date:', min_value=min_date, max_value=max_date, value=max_date)
-	scraper = CmcScraper(selected_ticker, pd.to_datetime(start_date), pd.to_datetime(end_date))
+	scraper = CmcScraper(selected_ticker, str(start_date), str(end_date))
 
 ### Pandas dataFrame for the same data
 data = scraper.get_dataframe()
