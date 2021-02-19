@@ -36,7 +36,8 @@ st.markdown(
 	"""
 <style>
 .big-font {
-    font-size:18px !important;
+	fontWeight: bold;
+    font-size:22px !important;
 }
 </style>
 """, unsafe_allow_html=True)
