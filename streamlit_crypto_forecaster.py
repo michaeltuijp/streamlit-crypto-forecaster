@@ -117,22 +117,22 @@ if st.button("Predict"):
 	m = Prophet(
 		growth='linear', # logistic/linear
         changepoint_range=1.0, # 1.0
-        yearly_seasonality=False, # auto
-        weekly_seasonality=False,
+        yearly_seasonality='auto', # auto
+        weekly_seasonality='auto',
         daily_seasonality=False,
         seasonality_mode='multiplicative', # multiplicative/additive
         changepoint_prior_scale=0.05 # 0.75/0.05
 		)
-	m.fit(df_train)
+	# m.fit(df_train)
 
 	# extended_model = Prophet(
 	#     daily_seasonality=False, 
 	#     seasonality_mode="multiplicative",
 	# )  
-	# for col in input_df.columns:     
-	#     if col not in ["ds", "y"]: 
-	#         extended_model.add_regressor(col, mode="additive")  
-	# extended_model.fit(input_df)
+	for col in df_train.columns:     
+	    if col not in ["ds", "y"]: 
+	        m.add_regressor(col, mode="additive")
+	m.fit(input_df)
 
 	future = m.make_future_dataframe(periods=period)
 	forecast = m.predict(future)
