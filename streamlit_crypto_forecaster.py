@@ -132,7 +132,7 @@ if st.button("Predict"):
 	for col in df_train.columns:     
 	    if col not in ["ds", "y"]: 
 	        m.add_regressor(col, mode="additive")
-	m.fit(input_df)
+	m.fit(df_train)
 
 	future = m.make_future_dataframe(periods=period)
 	forecast = m.predict(future)
