@@ -44,7 +44,7 @@ st.markdown(
 
 # st.markdown('<p class="big-font">Hello World !!</p>', unsafe_allow_html=True)
 
-st.sidebar.markdown("<p class='big-font'><span class='bold'><font color='black'>Forecaster Settings</font></span></p>", unsafe_allow_html=True)
+st.sidebar.markdown("**<p class='big-font'><span class='bold'><font color='black'>Forecaster Settings</font></span></p>**", unsafe_allow_html=True)
 
 ### Select ticker & number of days to predict on
 selected_ticker = st.sidebar.text_input("Select a ticker for prediction (i.e. BTC, ETH, LINK, etc.)", "BTC")
