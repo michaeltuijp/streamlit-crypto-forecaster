@@ -44,11 +44,11 @@ st.markdown(
 
 # st.markdown('<p class="big-font">Hello World !!</p>', unsafe_allow_html=True)
 
-st.sidebar.markdown("**<p class='big-font'><span class='bold'><font color='black'>Forecaster Settings</font></span></p>**", unsafe_allow_html=True)
+st.sidebar.markdown("<p class='big-font'><font color='black'>**Forecaster Settings**</font></p>", unsafe_allow_html=True)
 
 ### Select ticker & number of days to predict on
 selected_ticker = st.sidebar.text_input("Select a ticker for prediction (i.e. BTC, ETH, LINK, etc.)", "BTC")
-period = int(st.sidebar.number_input('Number of days to predict:', min_value=0, max_value=100000, value=30, step=1))
+period = int(st.sidebar.number_input('Number of days to predict:', min_value=0, max_value=1000000, value=365, step=1))
 
 ### Initialise scraper without time interval
 @st.cache
