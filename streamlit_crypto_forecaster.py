@@ -123,12 +123,12 @@ if st.button("Predict"):
 	st.subheader('Forecast data')
 	st.write(forecast.head())
 	    
-	st.write(f'Forecast plot for {period} days')
+	st.title(f'Forecast plot for {period} days')
 	fig1 = plot_plotly(m, forecast)
 	if plot_log:
 		fig1.update_yaxes(type="log")
 	st.plotly_chart(fig1)
 
-	st.write("Forecast components")
+	st.title("Forecast components")
 	fig2 = m.plot_components(forecast)
 	st.write(fig2)
