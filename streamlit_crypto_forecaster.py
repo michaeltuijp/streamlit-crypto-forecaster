@@ -115,13 +115,13 @@ if st.button("Predict"):
 
 	### Create Prophet model
 	m = Prophet(
-		growth='linear', # logistic
+		growth='linear', # logistic/linear
         changepoint_range=1.0, # 1.0
         yearly_seasonality=False, # auto
         weekly_seasonality=False,
         daily_seasonality=False,
-        seasonality_mode='multiplicative', # multiplicative
-        changepoint_prior_scale=0.75 # 0.75
+        seasonality_mode='multiplicative', # multiplicative/additive
+        changepoint_prior_scale=0.05 # 0.75/0.05
 		)
 	m.fit(df_train)
 
