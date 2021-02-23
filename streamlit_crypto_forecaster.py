@@ -114,7 +114,14 @@ if st.button("Predict"):
 	df_train = df_train.rename(columns={"Date": "ds", "Close": "y"})
 
 	### Create Prophet model
-	m = Prophet()
+	m = Prophet(
+		seasonality_mode="multiplicative",
+		daily_seasonality=False, 
+		weekly_seasonality=False, 
+		monthly_seasonality=False, 
+		changepoint_range=1, # 0.8
+		changepoint_prior_scale=0.75 # 0.05
+		)
 	m.fit(df_train)
 	future = m.make_future_dataframe(periods=period)
 	forecast = m.predict(future)
