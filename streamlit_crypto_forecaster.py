@@ -115,7 +115,7 @@ if st.button("Predict"):
 
 	### Create Prophet model
 	m = Prophet(
-		growth='linear', # logistic/linear
+		growth='logistic', # logistic/linear
         changepoint_range=1.0, # 1.0
         yearly_seasonality='auto', # auto
         weekly_seasonality='auto',
