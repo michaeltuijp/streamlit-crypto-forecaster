@@ -49,6 +49,7 @@ st.sidebar.markdown("<p class='big-font'><font color='black'>Forecaster Settings
 ### Select ticker & number of days to predict on
 selected_ticker = st.sidebar.text_input("Select a ticker for prediction (i.e. BTC, ETH, LINK, etc.)", "BTC")
 period = int(st.sidebar.number_input('Number of days to predict:', min_value=0, max_value=1000000, value=365, step=1))
+training_size = int(st.sidebar.number_input('Training set size:', min_value=0.1, max_value=1.0, value=0.8, step=0.05))
 
 ### Initialise scraper without time interval
 @st.cache
@@ -115,7 +116,7 @@ if st.button("Predict"):
 
 	### Create Prophet model
 	m = Prophet(
-		changepoint_range=0.9, # 0.8
+		changepoint_range=training_size, # 0.8
         yearly_seasonality='auto',
         weekly_seasonality='auto',
         daily_seasonality=False,
