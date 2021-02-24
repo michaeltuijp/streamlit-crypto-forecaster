@@ -116,7 +116,7 @@ if st.button("Predict"):
 
 	### Create Prophet model
 	m = Prophet(
-		changepoint_range=training_size, # 0.8
+		changepoint_range=1.0, # 0.8
         yearly_seasonality='auto',
         weekly_seasonality='auto',
         daily_seasonality=False,
