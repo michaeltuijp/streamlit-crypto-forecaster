@@ -66,7 +66,7 @@ data_load_state.text('Loading data... done!')
 
 
 ### Select date range
-date_range = st.sidebar.selectbox("Select the data timeframe:", options=["All available data", "Specific date range"])
+date_range = st.sidebar.selectbox("Select the timeframe to train the model on:", options=["All available data", "Specific date range"])
 
 if date_range == "All available data":
 
