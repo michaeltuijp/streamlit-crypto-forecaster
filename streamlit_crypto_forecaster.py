@@ -115,12 +115,12 @@ if st.button("Predict"):
 
 	### Create Prophet model
 	m = Prophet(
-		changepoint_range=1.0, # 0.8
-        yearly_seasonality='auto', # auto
+		changepoint_range=0.9, # 0.8
+        yearly_seasonality='auto',
         weekly_seasonality='auto',
         daily_seasonality=False,
         seasonality_mode='multiplicative', # multiplicative/additive
-        changepoint_prior_scale=0.75 # 0.75/0.05
+        changepoint_prior_scale=0.05 # 0.75/0.05
 		)
 
 	### Add (additive) regressor
