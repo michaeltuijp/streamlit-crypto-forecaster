@@ -15,8 +15,7 @@ st.title('Crypto Forecaster')
 st.markdown("This application enables you to predict on the future value of any cryptocurrency (available on Coinmarketcap.com), for \
 	any number of days into the future! The application is built with Streamlit (the front-end) and the Facebook Prophet model, \
 	which is an advanced open-source forecasting model built by Facebook, running under the hood. You can select to train the model \
-	on either all available data or a pre-set date range. Finally, you can plot the prediction results on both a normal and log scale.") 
-	### Add save prediction dataset + image option?
+	on either all available data or a pre-set date range. Finally, you can plot the prediction results on both a normal and log scale.")
 
 ### Change sidebar color
 st.markdown(
