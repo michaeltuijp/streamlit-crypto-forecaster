@@ -1,5 +1,5 @@
 # streamlit-crypto-forecaster
-![Alt text](/michaeltuijp/streamlit-crypto-forecaster/streamlit-crypto-forecaster.png?raw=true "Streamlit Crypto Forecaster")
+![Alt text](streamlit-crypto-forecaster.png?raw=true "Streamlit Crypto Forecaster")
 
 This repository contains a Streamlit app, which predicts the future price of a user specified crypto ticker from Coinmarketcap using Facebook Prophet! By no means do I believe the predictions are 100% accurate, nor would it be any kind of financial advice. However, it's interesting to see what the model predicts & check its accuracy over time.
 
