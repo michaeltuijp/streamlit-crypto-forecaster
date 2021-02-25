@@ -42,8 +42,6 @@ st.markdown(
 </style>
 """, unsafe_allow_html=True)
 
-# st.markdown('<p class="big-font">Hello World !!</p>', unsafe_allow_html=True)
-
 st.sidebar.markdown("<p class='big-font'><font color='black'>Forecaster Settings</font></p>", unsafe_allow_html=True)
 
 ### Select ticker & number of days to predict on
@@ -76,7 +74,7 @@ if date_range == "All available data":
 elif date_range == "Specific date range":
 
 	### Initialise scraper with time interval
-	start_date = st.sidebar.date_input('Select start date:', min_value=min_date, max_value=max_date, value=max_date)
+	start_date = st.sidebar.date_input('Select start date:', min_value=min_date, max_value=max_date, value=min_date)
 	end_date = st.sidebar.date_input('Select end date:', min_value=min_date, max_value=max_date, value=max_date)
 	scraper = CmcScraper(selected_ticker, str(start_date.strftime("%d-%m-%Y")), str(end_date.strftime("%d-%m-%Y")))
 
@@ -121,7 +119,7 @@ if st.button("Predict"):
         weekly_seasonality='auto',
         daily_seasonality=False,
         seasonality_mode='multiplicative', # multiplicative/additive
-        changepoint_prior_scale=0.05 # 0.75/0.05
+        changepoint_prior_scale=0.05
 		)
 
 	### Add (additive) regressor
