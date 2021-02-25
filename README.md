@@ -14,7 +14,7 @@ https://streamlit-crypto-forecaster.herokuapp.com/
 
 If you like to learn more about how the app is built, check out the Medium article I've written about it:
 
-...
+https://michaeltuijp.medium.com/predicting-cryptocurrency-prices-using-facebook-prophet-a1509415224f
 
 
 In order to use this application locally:
