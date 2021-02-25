@@ -15,4 +15,4 @@ In order to use this application locally:
   - Clone the repository in your own local folder
   - Open up your command prompt and run _cd \your\local\folder_
   - Run _streamlit run streamlit_crypto_forecaster.py_
-  - You're done! Happy coding!
+  - You're done!
