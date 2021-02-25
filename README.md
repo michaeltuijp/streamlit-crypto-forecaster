@@ -6,9 +6,11 @@ This repository contains a Streamlit app, which predicts the future price of a u
 Additionally, you could use these files as a template for your own (forecasting) applications, which need not be crypto related at all (predicting COVID cases, sales of the company you work at, you name it)!
 
 I've created a simple Heroku deployment of the app. You can go to this url & play around with it yourself!
+
 https://streamlit-crypto-forecaster.herokuapp.com/
 
 If you like to learn more about how the app is built, check out the Medium article I've written about it:
+
 ...
 
 In order to use this application locally:
